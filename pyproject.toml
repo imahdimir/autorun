@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "autorun"
+name = "autorunpy"
 version = "0.0.1"
 authors = [{ name = "Mahdi Mir", email = "imahdimir@gmail.com" }]
 description = "Tools for auto running python scripts"
@@ -11,5 +11,5 @@ readme = "README.md"
 license = { file = "LICENSE" }
 
 [project.urls]
-"Homepage" = "https://github.com/imahdimir/autorun"
-"Bug Tracker" = "https://github.com/imahdimir/autorun/issues"
+"Homepage" = "https://github.com/imahdimir/pyautorun"
+"Bug Tracker" = "https://github.com/imahdimir/pyautorun/issues"
