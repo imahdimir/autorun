@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "autorun"
 version = "0.0.0"
 authors = [{ name = "Mahdi Mir", email = "imahdimir@gmail.com" }]
-description = "Tools for autorunning python scripts"
+description = "Tools for auto running python scripts"
 readme = "README.md"
 license = { file = "LICENSE" }
 
