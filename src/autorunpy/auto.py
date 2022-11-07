@@ -43,7 +43,7 @@ def rm_venv(fp = cnf.def_fn) :
     usrp = get_user_repo_from_url(rp_url)
 
     rmv = js[cnf.rm_venv]
-    if rmv is True :
+    if rmv :
         cmd = ['pyenv' , 'virtualenv-delete' , '-f' , usrp.user_und_repo]
         subprocess.run(cmd)
         print(f'\n LOG: {usrp.user_und_repo} venv has been deleted')
