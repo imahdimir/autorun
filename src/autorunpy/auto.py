@@ -26,7 +26,7 @@ def make_venv(fp = cnf.def_fn) :
 
     print(usrp.user_und_repo)
 
-def ret_dirn(fp = cnf.def_fn) :
+def ret_dirp(fp = cnf.def_fn) :
     js = read_json(fp)
     rp_url = js[cnf.repo_url]
     dirp = download_latest_release(rp_url)
