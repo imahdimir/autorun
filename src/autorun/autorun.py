@@ -3,48 +3,53 @@
     """
 
 import subprocess
-from pathlib import Path
 
-from giteasy import GitHubRepo
-from giteasy.github_releases import \
-    download_latest_release_of_public_github_repo
-
-from .files import read_json_file
+from .util import read_json , get_user_repo_from_url
+from .models import Conf
+from .github_release import download_latest_release
 
 
-class Conf :
-    def_fn = Path('conf.json')
-    repo_url = 'repo_url'
-    python_version = 'python_version'
-    module_2_run = "module_2_run"
+cnf = Conf()
 
-conf = Conf()
+def make_venv(fp = cnf.def_fn) :
+    js = read_json(fp)
 
-def make_venv(fp = conf.def_fn) :
-    js = read_json_file(fp)
+    rp_url = js[cnf.repo_url]
+    usrp = get_user_repo_from_url(rp_url)
 
-    rp_url = js[conf.repo_url]
-    ghr = GitHubRepo(rp_url)
-
-    pyv = js[conf.python_version]
+    pyv = js[cnf.python_version]
 
     subprocess.run(['pyenv' , 'install' , '--skip-existing' , pyv])
-    subprocess.run(['pyenv' , 'virtualenv-delete' , '-f' , ghr.repo_name])
-    subprocess.run(['pyenv' , 'virtualenv' , pyv , ghr.repo_name])
+    subprocess.run(['pyenv' , 'virtualenv-delete' , '-f' , usrp.user_und_repo])
+    subprocess.run(['pyenv' , 'virtualenv' , pyv , usrp.user_und_repo])
 
-    print(ghr.repo_name)
+    print(usrp.user_und_repo)
 
-def ret_dirn(fp = conf.def_fn) :
-    js = read_json_file(fp)
-    rp_url = js[conf.repo_url]
-    dirp = download_latest_release_of_public_github_repo(rp_url)
+def ret_dirn(fp = cnf.def_fn) :
+    js = read_json(fp)
+    rp_url = js[cnf.repo_url]
+    dirp = download_latest_release(rp_url)
     print(dirp)
 
-def ret_module_2_run_name(fp = conf.def_fn) :
-    js = read_json_file(fp)
-    print(js[conf.module_2_run])
+def ret_module_2_run_name(fp = cnf.def_fn) :
+    js = read_json(fp)
+    print(js[cnf.module_2_run])
+
+def rm_venv(fp = cnf.def_fn) :
+    js = read_json(fp)
+
+    rp_url = js[cnf.repo_url]
+    usrp = get_user_repo_from_url(rp_url)
+
+    rmv = js[cnf.rm_venv]
+    if rmv is True :
+        cmd = ['pyenv' , 'virtualenv-delete' , '-f' , usrp.user_und_repo]
+        subprocess.run(cmd)
+        print(f'\n LOG: {usrp.user_und_repo} venv has been deleted')
+    else :
+        print(f'\n LOG: {usrp.user_und_repo} venv has NOT been deleted')
 
 def dl_main_bash() :
     rp_url = 'https://github.com/imahdimir/auto-run-bash'
-    dirp = download_latest_release_of_public_github_repo(rp_url)
+    dirp = download_latest_release(rp_url)
     print(dirp)
