@@ -4,9 +4,10 @@
 
 import subprocess
 
-from .util import read_json , get_user_repo_from_url
-from .models import Conf
 from .github_release import download_latest_release
+from .models import Conf
+from .util import get_user_repo_from_url
+from .util import read_json
 
 
 cnf = Conf()

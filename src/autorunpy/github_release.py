@@ -2,10 +2,11 @@
 
     """
 
-import requests
 import re
-from pathlib import Path
 import tarfile
+from pathlib import Path
+
+import requests
 
 from .util import get_user_repo_from_url
 
