@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 class Conf :
-    def_fn = Path('conf.json')
+    def_fn = Path.cwd().parent / 'conf.json'
     repo_url = 'repo_url'
     python_version = 'python_version'
     module_2_run = "module_2_run"
