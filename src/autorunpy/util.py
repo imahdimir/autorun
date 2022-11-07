@@ -16,5 +16,5 @@ def get_user_repo_from_url(repo_url) :
     return UserRepo(user_name , repo_name , user_slash_repo , user_und_repo)
 
 def read_json(fp) :
-    with open(fp) as f :
+    with open(fp , 'r') as f :
         return json.load(f)
