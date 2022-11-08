@@ -4,8 +4,20 @@
 
 import json
 
-from .models import UserRepo
 
+class Conf :
+    def_fn = Path.cwd().parent / 'conf.json'
+    repo_url = 'repo_url'
+    python_version = 'python_version'
+    module_2_run = "module_2_run"
+    rm_venv = 'rm_venv'
+
+@dataclass
+class UserRepo :
+    user_name: str
+    repo_name: str
+    user_slash_repo: str
+    user_und_repo: str
 
 def get_user_repo_from_url(repo_url) :
     gu = repo_url.split('github.com/')[1]
