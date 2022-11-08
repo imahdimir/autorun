@@ -26,7 +26,7 @@ def make_venv(fp = cnf.def_fn) :
 
     print(usrp.user_und_repo)
 
-def ret_dirp(fp = cnf.def_fn) :
+def dl_and_ret_dirpath(fp = cnf.def_fn) :
     js = read_json(fp)
     rp_url = js[cnf.repo_url]
     dirp = download_latest_release(rp_url)
@@ -49,8 +49,3 @@ def rm_venv(fp = cnf.def_fn) :
         print(f'\n LOG: {usrp.user_und_repo} venv has been deleted')
     else :
         print(f'\n LOG: {usrp.user_und_repo} venv has NOT been deleted')
-
-def dl_main_bash() :
-    rp_url = 'https://github.com/imahdimir/auto-run-bash'
-    dirp = download_latest_release(rp_url)
-    print(dirp)
