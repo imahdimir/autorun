@@ -10,7 +10,6 @@ import requests
 
 from .util import get_user_repo_from_url
 
-
 def get_latest_release_tar_url(repo_url) :
     usrp = get_user_repo_from_url(repo_url)
     url = f'https://api.github.com/repos/{usrp.user_slash_repo}/releases/latest'
@@ -25,7 +24,7 @@ def get_filename_fr_github_resp(r) :
     mat = re.findall(pat , cd)
     return mat[0]
 
-def download_latest_release_tarball(repo_url , local_path = None) :
+def download_latest_release_tarball(repo_url) :
     url = get_latest_release_tar_url(repo_url)
 
     r = requests.get(url)
@@ -33,9 +32,7 @@ def download_latest_release_tarball(repo_url , local_path = None) :
         return
 
     fn = get_filename_fr_github_resp(r)
-    if local_path is None :
-        local_path = Path.cwd()
-    fp = Path(local_path) / fn
+    fp = Path.cwd() / fn
 
     with open(fp , 'wb') as f :
         f.write(r.content)
@@ -46,8 +43,8 @@ def get_dirname_fr_github_tarball(fp) :
     with tarfile.open(fp) as tar :
         return tar.getnames()[0]
 
-def download_latest_release(repo_url , local_dirpath = None) :
-    tar_fp = download_latest_release_tarball(repo_url , local_dirpath)
+def download_latest_release(repo_url) :
+    tar_fp = download_latest_release_tarball(repo_url)
 
     with tarfile.open(tar_fp) as f :
         f.extractall(tar_fp.parent)

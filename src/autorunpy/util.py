@@ -6,13 +6,10 @@ import json
 from dataclasses import dataclass
 from pathlib import Path
 
-
 class Conf :
-    def_fn = Path.cwd().parent / 'conf.json'
-    repo_url = 'repo_url'
-    python_version = 'python_version'
-    module_2_run = "module_2_run"
-    rm_venv = 'rm_venv'
+    url = 'url'  # GitHub url of the target repo
+    py_ver = 'py_ver'  # python version to use
+    module = "module"  # module name to run
 
 @dataclass
 class UserRepo :
@@ -30,5 +27,11 @@ def get_user_repo_from_url(repo_url) :
     return UserRepo(user_name , repo_name , user_slash_repo , user_und_repo)
 
 def read_json(fp) :
+    # if fp is not entered with .json extension, add it
+    fp = Path(fp).with_suffix('.json')
+
+    # assume cd is the GitHub dir
+    fp = Path.cwd() / fp
+
     with open(fp , 'r') as f :
         return json.load(f)
