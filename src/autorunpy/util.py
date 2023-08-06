@@ -31,7 +31,7 @@ def read_json(fp) :
     fp = Path(fp).with_suffix('.json')
 
     # assume cd is the GitHub dir
-    fp = Path.cwd() / fp
+    fp = Path.cwd() / 'auto-run-configs' / fp
 
     with open(fp , 'r') as f :
         return json.load(f)
