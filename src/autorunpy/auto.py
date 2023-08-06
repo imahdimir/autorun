@@ -3,6 +3,7 @@
     """
 
 import subprocess
+from pathlib import Path
 
 from .github_release import download_latest_release
 from .util import Conf
@@ -33,4 +34,6 @@ def dl_and_ret_dirpath(fp) :
 
 def ret_module_2_run_name(fp) :
     js = read_json(fp)
-    print(js[c.module])
+    fbn = js[c.module]
+    fn = Path(fbn).with_suffix('.py').name
+    print(fn)
