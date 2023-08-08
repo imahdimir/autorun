@@ -7,7 +7,7 @@ from .util import read_json
 c = Conf()
 
 def make_venv(fp) :
-    """ make virtualenv with pyenv, delete existing venv if it exists"""
+    """ make virtualenv with pyenv, delete existing venv if it exists """
     j = read_json(fp)
 
     py_ver = j[c.py_ver]
