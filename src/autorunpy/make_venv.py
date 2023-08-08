@@ -17,7 +17,7 @@ def make_venv(fp) :
 
     subprocess.run(['pyenv' , 'install' , '--skip-existing' , py_ver])
     subprocess.run(['pyenv' , 'virtualenv' , py_ver , venv_name ,
-                    ' &> /dev/null'])
+                    '&> /dev/null'])
 
     print(venv_name)
 
