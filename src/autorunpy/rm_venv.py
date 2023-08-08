@@ -11,7 +11,7 @@ def rm_venv(fp) :
     j = read_json(fp)
     if j[c.rm_venv] :
         subprocess.run(['pyenv' , 'virtualenv-delete' , '-f' ,
-                        j[c.pkg] + '.' + j[c.py_ver]])
+                        j[c.pkg] + j[c.py_ver]])
 
 if __name__ == '__main__' :
     conf_fn = sys.argv[1]
