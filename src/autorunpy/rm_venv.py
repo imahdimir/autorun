@@ -10,8 +10,8 @@ def rm_venv(fp) :
     """ remove virtualenv with pyenv if specified in the config file """
     j = read_json(fp)
     if j[c.rm_venv] :
-        subprocess.run(['pyenv' , 'virtualenv-delete' , '-f' ,
-                        j[c.pkg] + j[c.py_ver]])
+        cmds = ['pyenv' , 'virtualenv-delete' , '-f' ,j[c.pkg] + j[c.py_ver]]
+        subprocess.run(cmds)
 
 if __name__ == '__main__' :
     conf_fn = sys.argv[1]
