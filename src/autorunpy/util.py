@@ -14,8 +14,8 @@ class Const :
 c = Const()
 
 def read_json(fp) :
-    # if fp is not entered with .json extension, add it
-    fp = Path(fp).with_suffix('.json')
+    # if fp is not entered with .json extension, add .json to it
+    fp = fp.with_suffix('.json')
 
     fp = c.rc / fp
 
