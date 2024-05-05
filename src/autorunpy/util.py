@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from os import environ
+
 class Conf :
     pkg = 'pip_pkg'
     py_ver = 'py_ver'  # python version to use
@@ -8,8 +10,7 @@ class Conf :
     rm_venv = 'rm_venv'  # whether to remove venv after running
 
 class Const :
-    rc = '/root/auto_run_configs'
-    rc = Path(rc)
+    rc = Path(environ['HOME']) / 'auto_run_configs'
 
 c = Const()
 

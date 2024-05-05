@@ -21,10 +21,11 @@ def make_venv(fp) :
 
     venv_name = Path(fp).stem
 
-    subprocess.run(['pyenv' , 'install' , '--skip-existing' , py_ver])
+    _cmds = ['pyenv' , 'install' , '--skip-existing' , py_ver]
+    subprocess.run(_cmds)
 
-    cmds = ['pyenv' , 'virtualenv' , py_ver , venv_name , '&> /dev/null']
-    subprocess.run(cmds)
+    _cmds = ['pyenv' , 'virtualenv' , py_ver , venv_name , '&> /dev/null']
+    subprocess.run(_cmds)
 
     print(venv_name)
 
