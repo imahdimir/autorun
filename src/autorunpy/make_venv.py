@@ -14,12 +14,12 @@ from .util import read_json
 
 c = Conf()
 
-def make_venv(fp) :
-    j = read_json(fp)
+def make_venv(conf_stem) :
+    fp , j = read_json(conf_stem)
 
     py_ver = j[c.py_ver]
 
-    venv_name = Path(fp).stem
+    venv_name = conf_stem
 
     _cmds = ['pyenv' , 'install' , '--skip-existing' , py_ver]
     subprocess.run(_cmds)
@@ -30,5 +30,5 @@ def make_venv(fp) :
     print(venv_name)
 
 if __name__ == '__main__' :
-    conf_fn = sys.argv[1]
-    make_venv(conf_fn)
+    conf_stem = sys.argv[1]
+    make_venv(conf_stem)

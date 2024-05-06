@@ -14,11 +14,8 @@ class Const :
 
 c = Const()
 
-def read_json(fp) :
-    fp = c.rc / fp
-
-    # if fp is not entered with .json extension, add .json to it
+def read_json(conf_stem) :
+    fp = c.rc / conf_stem
     fp = fp.with_suffix('.json')
-
-    with open(fp , 'r') as f :
-        return json.load(f)
+    with open(fp , 'r') as _f :
+        return fp , json.load(_f)

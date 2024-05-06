@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "autorunpy"
-version = "8.0.4"
+version = "8.0.5"
 authors = [{ name = "Mahdi Mir", email = "imahdimir@gmail.com" }]
 description = "Tools for auto running python scripts"
 readme = "README.md"
