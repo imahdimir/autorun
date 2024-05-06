@@ -22,7 +22,7 @@ def make_venv(conf_stem) :
     subprocess.run(_cmds)
 
     _cmds = ['pyenv' , 'virtualenv' , py_ver , conf_stem]
-    # _cmds += ['&> /dev/null']
+    _cmds += ['&> /dev/null']
     subprocess.run(_cmds)
 
     print(conf_stem)

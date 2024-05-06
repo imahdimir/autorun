@@ -17,8 +17,8 @@ class Const :
 c = Const()
 
 def read_json(conf_stem) :
-    print(conf_stem)
     fp = c.rc / conf_stem
     fp = fp.with_suffix('.json')
+
     with open(fp , 'r') as _f :
         return fp , json.load(_f)
