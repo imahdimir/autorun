@@ -15,6 +15,7 @@ class Const :
 c = Const()
 
 def read_json(fp) :
+    print("config path:" , fp)
     fp = Path(fp)
 
     # if fp is not entered with .json extension, add .json to it
