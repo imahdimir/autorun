@@ -13,7 +13,7 @@ from .util import read_json
 c = Conf()
 
 def rm_venv(conf_stem) :
-    fp , j = read_json(conf_stem)
+    _ , j = read_json(conf_stem)
 
     if j[c.rm_venv] :
         cmds = ['pyenv' , 'virtualenv-delete' , '-f' , conf_stem]
@@ -22,5 +22,5 @@ def rm_venv(conf_stem) :
         subprocess.run(cmds)
 
 if __name__ == '__main__' :
-    conf_stem = sys.argv[1]
-    rm_venv(conf_stem)
+    arg = sys.argv[1]
+    rm_venv(arg)

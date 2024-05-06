@@ -6,6 +6,6 @@ from .util import read_json
 c = Conf()
 
 if __name__ == '__main__' :
-    conf_stem = sys.argv[1]
-    _ , js = read_json(conf_stem)
+    arg = sys.argv[1]
+    _ , js = read_json(arg)
     print(js[c.pkg])

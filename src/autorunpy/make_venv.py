@@ -27,5 +27,5 @@ def make_venv(conf_stem) :
     print(conf_stem)
 
 if __name__ == '__main__' :
-    conf_stem = sys.argv[1]
-    make_venv(conf_stem)
+    arg = sys.argv[1]
+    make_venv(arg)

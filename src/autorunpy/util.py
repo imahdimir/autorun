@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from os import environ
 
 class Conf :
     pkg = 'pip_pkg'
@@ -11,7 +12,7 @@ class Conf :
     rm_venv = 'rm_venv'
 
 class Const :
-    rc = Path('/home/m/auto_run_configs')
+    rc = Path(environ['HOME']) / 'auto_run_configs'
 
 c = Const()
 

@@ -16,5 +16,5 @@ def ret_module_2_run_rel_command(conf_stem) :
     print(j[c.pkg] + '.' + j[c.module])
 
 if __name__ == '__main__' :
-    conf_stem = sys.argv[1]
-    ret_module_2_run_rel_command(conf_stem)
+    arg = sys.argv[1]
+    ret_module_2_run_rel_command(arg)
