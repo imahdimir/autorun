@@ -1,7 +1,6 @@
 import json
-from pathlib import Path
-
 from os import environ
+from pathlib import Path
 
 class Conf :
     pkg = 'pip_pkg'

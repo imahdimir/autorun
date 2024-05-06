@@ -7,7 +7,6 @@
 
 import subprocess
 import sys
-from pathlib import Path
 
 from .util import Conf
 from .util import read_json
@@ -19,15 +18,13 @@ def make_venv(conf_stem) :
 
     py_ver = j[c.py_ver]
 
-    venv_name = conf_stem
-
     _cmds = ['pyenv' , 'install' , '--skip-existing' , py_ver]
     subprocess.run(_cmds)
 
-    _cmds = ['pyenv' , 'virtualenv' , py_ver , venv_name , '&> /dev/null']
+    _cmds = ['pyenv' , 'virtualenv' , py_ver , conf_stem , '&> /dev/null']
     subprocess.run(_cmds)
 
-    print(venv_name)
+    print(conf_stem)
 
 if __name__ == '__main__' :
     conf_stem = sys.argv[1]

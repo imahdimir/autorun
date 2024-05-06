@@ -6,7 +6,6 @@
 
 import subprocess
 import sys
-from pathlib import Path
 
 from .util import Conf
 from .util import read_json
