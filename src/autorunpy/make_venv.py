@@ -21,7 +21,8 @@ def make_venv(conf_stem) :
     _cmds = ['pyenv' , 'install' , '--skip-existing' , py_ver]
     subprocess.run(_cmds)
 
-    _cmds = ['pyenv' , 'virtualenv' , py_ver , conf_stem , '&> /dev/null']
+    _cmds = ['pyenv' , 'virtualenv' , py_ver , conf_stem]
+    # _cmds += ['&> /dev/null']
     subprocess.run(_cmds)
 
     print(conf_stem)
