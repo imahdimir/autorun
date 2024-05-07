@@ -16,8 +16,9 @@ def rm_venv(conf_stem) :
     _ , j = read_json(conf_stem)
 
     if j[c.rm_venv] :
-        _cmds = ['pyenv' , 'virtualenv-delete' , '-f' , conf_stem ,
-                 '&> /dev/null']
+        _cmds = ['pyenv' , 'virtualenv-delete' , '-f' , conf_stem]
+        _cmds += ['&> /dev/null']
+        
         subprocess.run(_cmds)
 
 if __name__ == '__main__' :
