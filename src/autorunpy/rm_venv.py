@@ -17,7 +17,7 @@ def rm_venv(conf_stem) :
 
     if j[c.rm_venv] :
         _cmds = ['pyenv' , 'virtualenv-delete' , '-f' , conf_stem]
-        _cmds += ['&> /dev/null']
+        # _cmds += ['&> /dev/null']
         
         subprocess.run(_cmds)
 
